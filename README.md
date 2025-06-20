@@ -4,13 +4,13 @@ Testing AI Assistant feature with LLM
 For library bussiness: book, shelf
 
 ## Requirements
-- python 3
+- python3
 - docker
 
 ## Setup
 
 ```bash
-cp .env.example .env
+$ cp .env.example .env
 ```
 
 ## Run
