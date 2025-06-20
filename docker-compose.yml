@@ -1,0 +1,43 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
+    image: mysql:9.3.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: 8EFZ9xzX0wIF
+      MYSQL_DATABASE: plouton_assistant
+      MYSQL_USER: plouton_assistant
+      MYSQL_PASSWORD: T18Tx1567R9K
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: chromadb
+    environment:
+      - ALLOW_RESET=TRUE
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data/chromadb:/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

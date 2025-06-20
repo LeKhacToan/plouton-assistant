@@ -1,0 +1,12 @@
+.idea
+/SaaS-Demo.iml
+.vscode
+.aws-sam
+.eslintrc.js
+node_modules/
+*/yarn.lock
+coverage
+.env
+.eslintcache
+data
+.venv
